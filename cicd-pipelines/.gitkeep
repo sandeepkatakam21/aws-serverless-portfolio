@@ -1,0 +1,2 @@
+# This directory will contain CI/CD pipeline configurations
+# Including AWS CodePipeline, GitHub Actions, and Jenkins examples
