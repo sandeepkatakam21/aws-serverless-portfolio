@@ -1,0 +1,2 @@
+# This directory will contain deployment automation scripts
+# Including Blue/Green, Rolling, and Canary deployment examples
