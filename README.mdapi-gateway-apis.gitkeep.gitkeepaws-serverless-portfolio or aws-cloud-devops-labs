@@ -1,0 +1,265 @@
+# AWS Cloud DevOps Labs
+
+A comprehensive collection of hands-on DevOps automation labs and examples using AWS services. This repository demonstrates modern DevOps practices, CI/CD pipelines, Infrastructure as Code (IaC), and monitoring solutions on AWS.
+
+## Project Overview
+
+This repository provides practical examples and labs for DevOps automation using AWS cloud services. It covers the complete DevOps lifecycle including continuous integration, continuous deployment, infrastructure provisioning, monitoring, and alerting.
+
+### Key Technologies
+- **AWS CodePipeline** - Automated CI/CD pipelines
+- **AWS CodeBuild** - Build and test automation
+- **AWS CodeDeploy** - Application deployment automation
+- **AWS CloudFormation** - Infrastructure as Code templates
+- **AWS CDK** - Cloud Development Kit projects
+- **Amazon CloudWatch** - Monitoring and alerting
+- **AWS Lambda** - Serverless compute functions
+- **Amazon ECS/EKS** - Container orchestration
+- **AWS Systems Manager** - Configuration management
+
+## Key Features
+
+🔄 **CI/CD Automation**
+- End-to-end pipeline automation with AWS CodePipeline
+- Multi-stage deployment workflows
+- Automated testing and quality gates
+- Blue/Green and Rolling deployment strategies
+
+🏗️ **Infrastructure as Code**
+- CloudFormation templates for AWS resources
+- AWS CDK projects with TypeScript/Python
+- Parameterized and reusable infrastructure components
+- Cross-region and multi-account deployments
+
+🐳 **Containerization**
+- Docker containerization examples
+- ECS Fargate deployment patterns
+- EKS cluster management
+- Container image build and deployment automation
+
+📊 **Monitoring & Observability**
+- CloudWatch dashboards and metrics
+- Custom application monitoring
+- Log aggregation and analysis
+- Automated alerting and notifications
+
+## Directory Structure
+
+```
+aws-cloud-devops-labs/
+├── cicd-pipelines/          # CI/CD pipeline configurations
+│   ├── codepipeline/        # AWS CodePipeline examples
+│   ├── github-actions/      # GitHub Actions workflows
+│   └── jenkins/             # Jenkins pipeline scripts
+├── deployment-scripts/      # Deployment automation scripts
+│   ├── blue-green/          # Blue/Green deployment scripts
+│   ├── rolling/             # Rolling deployment scripts
+│   └── canary/              # Canary deployment examples
+├── monitoring-dashboards/   # CloudWatch dashboards and alerts
+│   ├── application/         # Application-specific dashboards
+│   ├── infrastructure/      # Infrastructure monitoring
+│   └── custom-metrics/      # Custom CloudWatch metrics
+├── cf-templates/            # CloudFormation templates
+│   ├── networking/          # VPC, subnets, security groups
+│   ├── compute/             # EC2, ECS, Lambda resources
+│   ├── storage/             # S3, RDS, DynamoDB templates
+│   └── security/            # IAM roles, policies, encryption
+├── cdk-projects/            # AWS CDK projects
+│   ├── typescript/          # TypeScript CDK projects
+│   ├── python/              # Python CDK projects
+│   └── java/                # Java CDK projects
+├── terraform/               # Terraform configurations
+│   ├── modules/             # Reusable Terraform modules
+│   └── environments/        # Environment-specific configs
+└── docs/                    # Documentation and guides
+    ├── setup/               # Environment setup guides
+    ├── tutorials/           # Step-by-step tutorials
+    └── best-practices/      # DevOps best practices
+```
+
+## Example Labs
+
+### 🔵 Blue/Green Deployment Lab
+**Location:** `deployment-scripts/blue-green/`
+
+Implement zero-downtime deployments using AWS CodeDeploy with Application Load Balancer. This lab demonstrates:
+- Automated traffic shifting between environments
+- Health check validation
+- Automatic rollback on failure
+- Integration with CodePipeline
+
+### 🐳 Dockerized Workloads Lab
+**Location:** `cicd-pipelines/containerized-apps/`
+
+Build and deploy containerized applications using:
+- Multi-stage Docker builds
+- Amazon ECR for container registry
+- ECS Fargate for serverless containers
+- Automated image vulnerability scanning
+
+### 📊 CloudWatch Alerting Lab
+**Location:** `monitoring-dashboards/alerting/`
+
+Set up comprehensive monitoring and alerting:
+- Custom CloudWatch metrics
+- SNS notification integration
+- Lambda-based alert processing
+- Slack/Teams integration for notifications
+
+### 🏗️ Infrastructure as Code Lab
+**Location:** `cf-templates/` and `cdk-projects/`
+
+Provision AWS infrastructure using:
+- CloudFormation nested stacks
+- CDK constructs and stacks
+- Cross-stack references
+- Environment-specific parameter management
+
+### 📈 Performance Monitoring Lab
+**Location:** `monitoring-dashboards/performance/`
+
+Implement application performance monitoring:
+- X-Ray distributed tracing
+- Application Insights dashboards
+- Performance baseline establishment
+- Automated performance regression detection
+
+## Getting Started
+
+### Prerequisites
+
+- AWS CLI configured with appropriate permissions
+- Docker installed and running
+- Node.js (for CDK projects)
+- Python 3.8+ (for Python-based tools)
+- Git for version control
+
+### Quick Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sandeepkatakam21/aws-cloud-devops-labs.git
+   cd aws-cloud-devops-labs
+   ```
+
+2. **Configure AWS credentials:**
+   ```bash
+   aws configure
+   # or use AWS SSO
+   aws sso login --profile your-profile
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   # For CDK projects
+   npm install -g aws-cdk
+   
+   # For Python tools
+   pip install -r requirements.txt
+   ```
+
+4. **Deploy your first lab:**
+   ```bash
+   cd cf-templates/basic-vpc
+   aws cloudformation deploy --template-file vpc.yaml --stack-name demo-vpc
+   ```
+
+### Environment Setup
+
+For detailed environment setup instructions, see:
+- [AWS Account Setup](docs/setup/aws-account.md)
+- [Local Development Environment](docs/setup/local-environment.md)
+- [CI/CD Pipeline Setup](docs/setup/cicd-setup.md)
+
+## Usage Examples
+
+### Deploy a CloudFormation Stack
+```bash
+cd cf-templates/web-application
+aws cloudformation deploy \
+  --template-file app-infrastructure.yaml \
+  --stack-name my-web-app \
+  --parameter-overrides Environment=dev
+```
+
+### Build and Deploy with CDK
+```bash
+cd cdk-projects/typescript/web-app
+npm install
+npm run build
+cdk bootstrap
+cdk deploy
+```
+
+### Run CI/CD Pipeline
+```bash
+cd cicd-pipelines/codepipeline
+aws cloudformation deploy \
+  --template-file pipeline.yaml \
+  --stack-name demo-pipeline \
+  --capabilities CAPABILITY_IAM
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+### How to Contribute
+
+1. **Fork the repository**
+2. **Create a feature branch:**
+   ```bash
+   git checkout -b feature/new-lab
+   ```
+3. **Make your changes and commit:**
+   ```bash
+   git commit -m "Add new monitoring lab"
+   ```
+4. **Push to your fork and submit a pull request**
+
+### Contribution Guidelines
+
+- Follow AWS best practices and security guidelines
+- Include comprehensive documentation for new labs
+- Add unit tests where applicable
+- Update README.md if adding new directories or major features
+- Ensure all CloudFormation templates are validated
+- Test CDK deployments in a sandbox environment
+
+### Code Standards
+
+- Use consistent naming conventions
+- Include parameter descriptions in CloudFormation templates
+- Add comments for complex logic
+- Follow language-specific style guides (PEP 8 for Python, etc.)
+
+## Security
+
+- All IAM roles and policies follow the principle of least privilege
+- Sensitive data is managed through AWS Systems Manager Parameter Store or AWS Secrets Manager
+- Regular security reviews and updates are performed
+- See [SECURITY.md](SECURITY.md) for reporting security issues
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For questions, issues, or contributions:
+- Create an issue in this repository
+- Check existing discussions and documentation
+- Follow AWS best practices and guidelines
+
+## Roadmap
+
+- [ ] Advanced Kubernetes deployments with EKS
+- [ ] Serverless application examples with SAM
+- [ ] Multi-region disaster recovery patterns
+- [ ] Cost optimization automation
+- [ ] Advanced security scanning integration
+- [ ] GitOps workflow examples
+
+---
+
+**Happy DevOpsing! 🚀**
